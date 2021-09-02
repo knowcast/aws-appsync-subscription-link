@@ -1,0 +1,36 @@
+{
+  "name": "aws-appsync-subscription-link",
+  "version": "3.0.8",
+  "main": "lib/index.js",
+  "license": "Apache-2.0",
+  "description": "AWS Mobile AppSync SDK for JavaScript",
+  "author": {
+    "name": "Amazon Web Services",
+    "url": "https://aws.amazon.com/"
+  },
+  "homepage": "https://github.com/awslabs/aws-mobile-appsync-sdk-js.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awslabs/aws-mobile-appsync-sdk-js.git"
+  },
+  "scripts": {
+    "prepare": "tsc && cp -r src/vendor lib/vendor",
+    "test": "jest --coverage --coverageReporters=text",
+    "test-watch": "jest --watch"
+  },
+  "dependencies": {
+    "aws-appsync-auth-link": "^3.0.6",
+    "debug": "2.6.9",
+    "graphql": "^15.5.2",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.2.0",
+    "@redux-offline/redux-offline": "2.5.2-native.0",
+    "@types/node": "^16.7.10",
+    "typescript": "^4.4.2"
+  },
+  "peerDependencies": {
+    "@apollo/client": "3.x"
+  }
+}

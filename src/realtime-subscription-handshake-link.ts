@@ -730,14 +730,14 @@ export class AppSyncRealTimeSubscriptionHandshakeLink extends ApolloLink {
 
   private _errorDisconnect(msg: string) {
     logger(`Disconnect error: ${msg}`);
-    // TODO: Should we ERROR even if the connection was closed?
-    this.subscriptionObserverMap.forEach(({ observer }) => {
-      if (observer && !observer.closed) {
-        observer.error({
-          errors: [{ ...new GraphQLError(msg) }],
-        });
-      }
-    });
+    // TODO: We shouldn't error on socker closed, only on timeouts
+    // this.subscriptionObserverMap.forEach(({ observer }) => {
+    //   if (observer && !observer.closed) {
+    //     observer.error({
+    //       errors: [{ ...new GraphQLError(msg) }],
+    //     });
+    //   }
+    // });
     this.subscriptionObserverMap.clear();
     if (this.awsRealTimeSocket) {
       this.awsRealTimeSocket.close();
